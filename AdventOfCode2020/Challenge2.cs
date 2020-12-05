@@ -6,7 +6,7 @@ namespace AdventOfCode2020
 {
     public class Challenge2 : IChallenge
     {
-        public int RunFirst()
+        public long RunFirst()
         {
             var validCounter = 0;
             var allLines = File.ReadAllLines("challenges/2_1.txt");
@@ -27,7 +27,7 @@ namespace AdventOfCode2020
             return valid;
         }
 
-        public int RunSecond()
+        public long RunSecond()
         {
             var validCounter = 0;
             var allLines = File.ReadAllLines("challenges/2_1.txt");

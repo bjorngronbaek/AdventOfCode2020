@@ -15,17 +15,22 @@ namespace AdventOfCode2020
             _map = File.ReadAllLines("challenges/3_1.txt");
         }
 
-        public int RunFirst()
+        public long RunFirst()
         {
-            int row = 1;
-            int column = 1;
+            var route = (1, 3);
+            return GetTreeCountForRoute(route);
+        }
 
-            int treeCounter = 0;
+        private long GetTreeCountForRoute((int, int) route)
+        {
+            var row = 1;
+            var column = 1;
+            var treeCounter = 0;
             while (row <= MapHeight)
             {
                 if (IsTreePosition(column, row)) treeCounter++;
-                row += 1;
-                column += 3;
+                row += route.Item1;
+                column += route.Item2;
             }
 
             return treeCounter;
@@ -46,9 +51,15 @@ namespace AdventOfCode2020
         }
 
 
-        public int RunSecond()
+        public long RunSecond()
         {
-            throw new System.NotImplementedException();
+            var totalTrees = GetTreeCountForRoute((1,1));
+            totalTrees *= GetTreeCountForRoute((1, 3));
+            totalTrees *= GetTreeCountForRoute((1, 5));
+            totalTrees *= GetTreeCountForRoute((1, 7));
+            totalTrees *= GetTreeCountForRoute((2, 1));
+
+            return totalTrees;
         }
     }
 }

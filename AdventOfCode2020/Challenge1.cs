@@ -6,13 +6,13 @@ namespace AdventOfCode2020
 {
     public interface IChallenge
     {
-        int RunFirst();
-        int RunSecond();
+        long RunFirst();
+        long RunSecond();
     }
 
     public class Challenge1 : IChallenge
     {
-        public int RunFirst()
+        public long RunFirst()
         {
             var allLines = File.ReadAllLines("challenges/1_1.txt");
             var values = Array.ConvertAll<string, int>(allLines, int.Parse);
@@ -39,7 +39,7 @@ namespace AdventOfCode2020
             throw new Exception("No such value");
         }
         
-        public int RunSecond()
+        public long RunSecond()
         {
             var allLines = File.ReadAllLines("challenges/1_1.txt");
             var values = Array.ConvertAll<string, int>(allLines, int.Parse);
