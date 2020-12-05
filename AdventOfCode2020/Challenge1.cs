@@ -4,12 +4,6 @@ using System.Linq;
 
 namespace AdventOfCode2020
 {
-    public interface IChallenge
-    {
-        long RunFirst();
-        long RunSecond();
-    }
-
     public class Challenge1 : IChallenge
     {
         public long RunFirst()
