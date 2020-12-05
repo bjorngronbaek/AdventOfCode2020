@@ -4,7 +4,13 @@ using System.Linq;
 
 namespace AdventOfCode2020
 {
-    public class Challenge1
+    public interface IChallenge
+    {
+        int RunFirst();
+        int RunSecond();
+    }
+
+    public class Challenge1 : IChallenge
     {
         public int RunFirst()
         {

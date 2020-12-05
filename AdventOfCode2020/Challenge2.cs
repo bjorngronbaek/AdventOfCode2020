@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdventOfCode2020
 {
-    public class Challenge2
+    public class Challenge2 : IChallenge
     {
         public int RunFirst()
         {
