@@ -32,5 +32,36 @@ namespace AdventOfCode2020
             
             throw new Exception("No such value");
         }
+        
+        public int RunSecond()
+        {
+            var allLines = File.ReadAllLines("challenges/1_1.txt");
+            var values = Array.ConvertAll<string, int>(allLines, int.Parse);
+            Array.Sort(values);
+            for (int i = 0; i < values.Length; i++)
+            {
+                for (int j = i+1; j < values.Length; j++)
+                {
+                    for (int k = j+1; k < values.Length; k++)
+                    {
+                        var first = values[i];
+                        var second = values[j];
+                        var third = values[k];
+                        if (first + second + third == 2020)
+                        {
+                            Console.WriteLine($"Values are {first} and {second} and {third}");
+                            return first * second * third;
+                        }
+
+                        if (first + second + third > 2020)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            throw new Exception("No such value");
+        }
     }
 }

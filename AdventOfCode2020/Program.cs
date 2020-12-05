@@ -7,8 +7,8 @@ namespace AdventOfCode2020
         static void Main(string[] args)
         {
             Console.WriteLine("Advent Of Code 2020");
-            var runFirst = new Challenge1().RunFirst();
-            Console.WriteLine(runFirst);
+            Console.WriteLine(new Challenge1().RunFirst());
+            Console.WriteLine(new Challenge1().RunSecond());
         }
     }
 }
