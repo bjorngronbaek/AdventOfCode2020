@@ -14,12 +14,37 @@ namespace AdventOfCode2020
             {
                 var split = line.Split(':');
                 var policy = ParsePolicy(split[0]);
-
-                var charCount = split[1].Count(character => character == policy.Item3);
-                if (policy.Item1 <= charCount && charCount <= policy.Item2) validCounter++;
+                if (ValidateCountPolicy(split[1], policy)) validCounter++;
             }
 
             return validCounter;
+        }
+
+        private static bool ValidateCountPolicy(string password, (int, int, char) policy)
+        {
+            var charCount = password.Count(character => character == policy.Item3);
+            var valid = policy.Item1 <= charCount && charCount <= policy.Item2;
+            return valid;
+        }
+
+        public int RunSecond()
+        {
+            var validCounter = 0;
+            var allLines = File.ReadAllLines("challenges/2_1.txt");
+            foreach (var line in allLines)
+            {
+                var split = line.Split(':');
+                var policy = ParsePolicy(split[0]);
+                if (ValidatePositionPolicy(split[1], policy)) validCounter++;
+            }
+
+            return validCounter;
+        }
+
+        private bool ValidatePositionPolicy(string password, (int, int, char) policy)
+        {
+            return password[policy.Item1] != password[policy.Item2] &&
+                   (password[policy.Item1] == policy.Item3 || password[policy.Item2] == policy.Item3);
         }
 
         private (int, int, char) ParsePolicy(string policyString)
