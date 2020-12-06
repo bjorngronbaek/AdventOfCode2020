@@ -27,7 +27,20 @@ namespace AdventOfCode2020.challenges
 
         public long RunSecond()
         {
-            throw new System.NotImplementedException();
+            var allLines = IChallenge.GetAllLines("5_1.txt");
+            var seatIds = allLines.Select(ParseSeatId).OrderBy(id => id).ToList();
+
+            long mySeatId = 0;
+            for (var i = 0; i < seatIds.Count; i++)
+            {
+                if (seatIds[i + 1] > seatIds[i] + 1)
+                {
+                    mySeatId = seatIds[i] + 1;
+                    break;
+                }
+            }
+
+            return mySeatId;
         }
 
         public long ParseSeatId(string boardingPassCode)
