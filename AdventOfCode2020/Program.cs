@@ -23,7 +23,9 @@ namespace AdventOfCode2020
             //Console.WriteLine(new Challenge7().RunFirst());
             //Console.WriteLine(new Challenge7().RunSecond());
             //Console.WriteLine(new Challenge8().RunFirst());
-            Console.WriteLine(new Challenge8().RunSecond());
+            //Console.WriteLine(new Challenge8().RunSecond());
+            //Console.WriteLine(new Challenge9().RunFirst());
+            Console.WriteLine(new Challenge9().RunSecond());
         }
     }
 }
